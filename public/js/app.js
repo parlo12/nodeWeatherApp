@@ -6,7 +6,7 @@ const messageThree = document.querySelector('#message-3');
 const messageFour = document.querySelector('#message-4');
 const messageFive = document.querySelector('#message-5');
 const messageSix = document.querySelector('#message-6')
-
+const messageSeven = document.querySelector('#message-7')
  
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -18,6 +18,7 @@ weatherForm.addEventListener('submit', (e) => {
     messageFour.textContent ='';
     messageFive.textContent = '';
     messageSix.textContent = '';
+    messageSeven.textContent= '';
     console.log('test')
     fetch(`/weather?address=${location}`).then((response)=>{
 
@@ -30,6 +31,7 @@ weatherForm.addEventListener('submit', (e) => {
                 messageThree.textContent = 'last check temp is ' + localStorage.getItem('temperature');
                 messageFour.textContent = 'last uv index was at ' + localStorage.getItem('uvindex');
                 messageFive.textContent = 'last visibility level was at ' +localStorage.getItem('visibility');
+                messageSeven.textContent = 'Last wind Speed was at :' + localStorage.getItem('windSpeed');
 
             } else{
                 
@@ -42,6 +44,7 @@ weatherForm.addEventListener('submit', (e) => {
                     localStorage.setItem('temperature', data.forCastData.temperature);
                     localStorage.setItem('uvindex', data.forCastData.uvIndex)
                     localStorage.setItem('visibility', data.forCastData.visibility)
+                    localStorage.setItem('windSpeed', data.forCastData.windSpeed )
 
                 } else{
                     console.log('local Storage not available ')
@@ -52,6 +55,7 @@ weatherForm.addEventListener('submit', (e) => {
                     messageThree.textContent = 'Temperature Currently at :' +data.forCastData.temperature
                     messageFour.textContent = 'Current UV index is :'+ data.forCastData.uvIndex
                     messageFive.textContent = 'A visibility of ' + data.forCastData.visibility 
+                    messageSeven.textContent = 'Wind speed is currently at :' + data.forCastData.windSpeed + 'MPH'
             }
         })
     })
