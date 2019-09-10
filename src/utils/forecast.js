@@ -13,9 +13,10 @@ const request = require('request')
         }else if (body.error){
             callBack('Please enter a valid search', undefined)
         } else{
-            const {temperature, uvIndex, visibility, summary} = body.currently
 
-            callBack(undefined,{ summary, temperature,uvIndex,visibility})
+            const {temperature, uvIndex, visibility, summary, windSpeed} = body.currently
+
+            callBack(undefined,{ summary, temperature,uvIndex,visibility, windSpeed})
         }
     })
 }
