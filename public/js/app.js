@@ -31,7 +31,7 @@ weatherForm.addEventListener('submit', (e) => {
                 messageThree.textContent = 'last check temp is ' + localStorage.getItem('temperature');
                 messageFour.textContent = 'last uv index was at ' + localStorage.getItem('uvindex');
                 messageFive.textContent = 'last visibility level was at ' +localStorage.getItem('visibility');
-                messageSeven.textContent = 'Last wind Speed was at :' + localStorage.getItem('windSpeed');
+                messageSeven.textContent = 'Last wind Speed was at :' + localStorage.getItem('windSpeed') + 'MPH'
 
             } else{
                 
